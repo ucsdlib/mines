@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="war">
+    <property file="build.properties"/>
+	<property file="${user.home}/build.properties"/>
+    <property name="appName" value="mines"/>   
+    
+    <path id="classpath.webapp">
+        <fileset dir="./src/lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path> 
+	
+    <path id="classpath.compile">
+        <fileset dir="${jars.home}">
+            <include name="servlet.jar"/>
+        </fileset>
+    </path>
+
+	<import file="../common/version.xml"/>
+
+    <target name="prepare" depends="clean"> 
+        <delete dir="./build"/>
+        <mkdir  dir="./build"/>
+    </target>
+    
+    <target name="compile" depends="prepare,version">
+        <mkdir dir="./build/classes"/>
+        <mkdir dir="./build/deploy"/>
+    	<mkdir dir="./build/lib"/>
+        <!-- compile all of the java sources -->
+        <echo message="Compiling the java source files..."/>
+        <javac srcdir="./src/classes" destdir="./build/classes" debug="on">
+            <classpath refid="classpath.webapp" />
+            <classpath refid="classpath.compile" />
+        </javac>
+    	<!--copy file="./src/classes/oracle.properties" todir="./build/classes" /-->
+    </target>
+	
+    <target name="jar" depends="compile" description="Create JAR file">
+        <jar basedir="./build/classes" compress="true"
+    	    jarfile="./build/lib/mines.jar"/>  
+    </target>		
+	
+	<target name="webapp" depends="war"/>
+	<target name="war" depends="jar">
+		<copy file="./src/WEB-INF/web.xml" tofile="./build/web.xml">
+			<filterset refid="version-filters"/>
+		</copy>
+	    <war destfile="./build/deploy/mines.war" webxml="./build/web.xml">     
+	    	<metainf file="./src/META-INF/context.xml" />	    	
+            <lib dir="./src/lib"/>
+	        <classes dir="build/classes"/>
+	    	<lib dir="./build/lib" />
+	    	<fileset dir="./src/jsp"/>
+	    	<fileset dir="./src/graphics"/>
+	    	<!--fileset dir="./conf"/-->
+	        <webinf dir="./src/WEB-INF" excludes="web.xml"/>	            
+	    </war>
+	   
+	</target>
+	
+	<target name="clean">
+	    <delete dir="./build"/>
+	</target>	
+</project>
+

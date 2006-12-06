@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- Instantiates a JndiObjectFactoryBean to contain the data source. -->
+    <bean id="DataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:comp/env/mines" />
+    </bean>
+
+    <!-- Sets the data source to the jdbc template -->
+    <bean id="JdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="DataSource"/>
+    </bean>
+
+    <!-- DAO -->
+    <bean id="MinesClientDao" class="edu.ucsd.itd.mines.dao.MinesClientDaoJdbcTemplateImpl">
+        <property name="jdbcTemplate" ref="JdbcTemplate" />
+    </bean>
+    <bean id="SurveyDao" class="edu.ucsd.itd.mines.dao.SurveyDaoFileImpl">
+        <!--property name="filePath" value="C:\vivian\mines\mines_data.txt" /-->
+        <property name="filePath" value="/pub/data1/import/htdocs/mines/mines_data.txt" />
+    </bean>
+
+    <!-- Service -->
+    <bean id="MinesService" class="edu.ucsd.itd.mines.service.MinesServiceImpl">
+        <property name="surveyDao" ref="SurveyDao" />
+        <property name="minesClientDao" ref="MinesClientDao" />
+    </bean>
+
+    <!-- Locator -->
+    <bean id="ServiceLocator" class="edu.ucsd.itd.mines.service.ServiceLocatorImpl" factory-method="getInstance">
+        <property name="minesService" ref="MinesService" />
+    </bean>
+
+</beans>

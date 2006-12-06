@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/mines" docBase="mines.war">
+	<ResourceLink name="mines" global="jdbc/mines" type="javax.sql.DataSource"/>
+</Context>
