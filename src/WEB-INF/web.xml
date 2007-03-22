@@ -26,7 +26,7 @@
   
   <context-param>
     <param-name>dataSourceRef</param-name>
-    <param-value>java:comp/env/mines</param-value>
+    <param-value>java:comp/env/jdbc/mines</param-value>
   </context-param>  
   
   <context-param>
@@ -70,4 +70,12 @@
     <servlet-name>DbTestServlet</servlet-name>
     <url-pattern>/dbTest</url-pattern>
   </servlet-mapping>    
+
+  <resource-ref>
+    <description>copy of prod KB datasource</description>
+    <res-ref-name>jdbc/mines</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+
 </web-app>

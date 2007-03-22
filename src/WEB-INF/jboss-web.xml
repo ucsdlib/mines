@@ -1,0 +1,6 @@
+<jboss-web>
+  <resource-ref>
+    <res-ref-name>jdbc/mines</res-ref-name>
+    <jndi-name>java:/jdbc/mines</jndi-name>
+  </resource-ref>
+</jboss-web>

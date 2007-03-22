@@ -3,7 +3,7 @@
 <beans>
     <!-- Instantiates a JndiObjectFactoryBean to contain the data source. -->
     <bean id="DataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/mines" />
+        <property name="jndiName" value="java:comp/env/jdbc/mines" />
     </bean>
 
     <!-- Sets the data source to the jdbc template -->
