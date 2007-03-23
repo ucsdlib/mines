@@ -4,6 +4,7 @@
     <property file="build.properties"/>
 	<property file="${user.home}/build.properties"/>
     <property name="appName" value="mines"/>   
+    <property name="dist" value="${basedir}/build/deploy"/>   
     
     <path id="classpath.webapp">
         <fileset dir="./src/lib">
@@ -17,6 +18,7 @@
         </fileset>
     </path>
 
+	<import file="../common/remote.xml"/>
 	<import file="../common/version.xml"/>
 
     <target name="prepare" depends="clean"> 
