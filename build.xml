@@ -32,7 +32,8 @@
     	<mkdir dir="./build/lib"/>
         <!-- compile all of the java sources -->
         <echo message="Compiling the java source files..."/>
-        <javac srcdir="./src/classes" destdir="./build/classes" debug="on">
+        <javac srcdir="./src/classes" destdir="./build/classes" debug="on"
+            target="1.5">
             <classpath refid="classpath.webapp" />
             <classpath refid="classpath.compile" />
         </javac>
