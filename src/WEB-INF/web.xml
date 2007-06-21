@@ -19,7 +19,7 @@
   
   <context-param>
     <param-name>filePath</param-name>
-    <param-value>/pub/data1/import/htdocs/mines/mines_data.txt</param-value>
+    <param-value>/pub/data1/import/mines/mines_data.txt</param-value>
     <!--param-value>C:\vivian\mines\mines_data.txt</param-value-->
     <description>Path where files are written</description>
   </context-param>
