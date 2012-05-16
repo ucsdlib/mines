@@ -165,7 +165,7 @@ public class MinesHandlerServlet extends HttpServlet {
 		    	MinesUtilities.writeToFile(filePath, strBuffer);	    	
 		    	
 	    	} catch (Exception ex) {
-            	log("Exception in MinesHandlerServlet: "+ex);
+            	System.out.println("Exception in MinesHandlerServlet: "+ex);
             } finally {
 				MinesDbUtilities.closeConnection(con);			
 			}	
@@ -243,7 +243,7 @@ public class MinesHandlerServlet extends HttpServlet {
 		    		}
 		    	}	    	
 	    	} catch (Exception ex) {
-            	log("Exception in MinesHandlerServlet.doGet(): "+ex);
+	    		System.out.println("Exception in MinesHandlerServlet.doGet(): "+ex);
             } finally {
 				MinesDbUtilities.closeConnection(con);			
 			}
