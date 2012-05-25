@@ -50,13 +50,14 @@
 		<copy file="./src/WEB-INF/web.xml" tofile="./build/web.xml">
 			<filterset refid="version-filters"/>
 		</copy>
-	    <war destfile="./build/deploy/mines.war" webxml="./build/web.xml">     
+	    <war destfile="./build/deploy/mines.war" webxml="./build/web.xml">     	    	
 	    	<metainf file="./src/META-INF/context.xml" />	    	
             <lib dir="./src/lib"/>
 	        <classes dir="build/classes"/>
 	    	<lib dir="./build/lib" />
 	    	<fileset dir="./src/jsp"/>
 	    	<fileset dir="./src/graphics"/>
+	    	<fileset dir="./src/static"/>
 	    	<!--fileset dir="./conf"/-->
 	        <webinf dir="./src/WEB-INF" excludes="web.xml"/>	            
 	    </war>
