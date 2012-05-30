@@ -21,6 +21,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.net.*;
 
 /**
  * @author vchu
@@ -49,7 +50,7 @@ public class MinesUtilities {
 		return null;
 	}
 	
-	public static void writeCookiesToFile (Cookie[] cookies, String fileName) {
+	public static void writeCookiesToFile (Cookie[] cookies, String fileName) throws Exception{
     	String patronStatus = null, patronBehalfOf = null;
     	String researchType = null, sponsorshipProof = null;		
     	String patronLocation = null, academicDepartment = null;
@@ -82,7 +83,8 @@ public class MinesUtilities {
 	    	} 
 
     		if(newDestinationURL != null && newDestinationURL.length() > 0) {
-    			strBuffer.append(" , \"" + newDestinationURL + "\"");
+    			
+    			strBuffer.append(" , \"" + URLDecoder.decode(newDestinationURL,"UTF-8") + "\"");
     		}
     		
     		if(patronStatus != null && patronStatus.length() > 0)

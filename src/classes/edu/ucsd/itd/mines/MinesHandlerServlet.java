@@ -20,7 +20,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.sql.DataSource;
-
+import java.net.*;
 /**
  * @author vchu
  *
@@ -92,15 +92,15 @@ public class MinesHandlerServlet extends HttpServlet {
 		    	} 
 	    		
 	    		if(destinationURL != null && destinationURL.length() > 0) {
-		    		cookie = new Cookie("destination_url", destinationURL);
+		    		cookie = new Cookie("destination_url", URLEncoder.encode(destinationURL,"UTF-8"));
 		    		cookie.setMaxAge(timeoutDestUrl);  
 		    		response.addCookie(cookie);	 
 		    		
-		    		cookie = new Cookie("new_destination_url", destinationURL);
+		    		cookie = new Cookie("new_destination_url", URLEncoder.encode(destinationURL,"UTF-8"));
 		    		cookie.setMaxAge(timeoutDestUrl);  
 		    		response.addCookie(cookie);	
 		    		
-		    		strBuffer.append(" , \"" + destinationURL + "\"");
+		    		strBuffer.append(" , \"" + URLDecoder.decode(destinationURL,"UTF-8") + "\"");
 		    	} 		   
 	    		
 		    	if(patronStatus != null && patronStatus.length() > 0) {
@@ -213,15 +213,23 @@ public class MinesHandlerServlet extends HttpServlet {
 		    	if(cookies != null) {
 		    		destinationURL = MinesUtilities.getCookieValue(cookies, 
 		    				"destination_url");
-		    		newDestinationURL = MinesUtilities.getCookieValue(cookies, "new_destination_url");
+		    	
+		    		if(destinationURL != null)
+		    			destinationURL = URLDecoder.decode(destinationURL,"UTF-8");
 		    		
+		    		newDestinationURL = MinesUtilities.getCookieValue(cookies, "new_destination_url");
+		    	
+		    		if(newDestinationURL != null)
+		    			newDestinationURL = URLDecoder.decode(newDestinationURL,"UTF-8");
+		    	
 		    		if(destinationURL != null) {
 		    			/* if cookie destination_url is not equal to request url,
 		    			 * write other cookies values to local file
 		    			 * */
 		    			tempDestURLcookie = MinesUtilities.getCookie(cookies, 
-	    				"new_destination_url");		 		    		
-	    				tempDestURLcookie.setValue( requestDestinationURL ) ;
+	    				"new_destination_url");		
+		    			//requestDestinationURL = URLEncoder.encode(requestDestinationURL,"UTF-8");
+	    				tempDestURLcookie.setValue( URLEncoder.encode(requestDestinationURL,"UTF-8") ) ;
 	    				tempDestURLcookie.setMaxAge(timeoutDestUrl);		 		    		
 	    				response.addCookie( tempDestURLcookie ) ;
 	    				cookies = request.getCookies();
@@ -241,7 +249,7 @@ public class MinesHandlerServlet extends HttpServlet {
 		    			sendRequestToSurvey = false;
 		    			
 		    		}
-		    	}	    	
+		    	} 
 	    	} catch (Exception ex) {
 	    		System.out.println("Exception in MinesHandlerServlet.doGet(): "+ex);
             } finally {
