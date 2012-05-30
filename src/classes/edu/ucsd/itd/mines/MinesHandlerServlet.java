@@ -63,7 +63,7 @@ public class MinesHandlerServlet extends HttpServlet {
 	    response) throws ServletException, java.io.IOException {
 	    	String destinationURL = request.getParameter("destination_url");
 	    	String patronStatus = request.getParameter("patron_status");
-	    	String patronBehalfOf = request.getParameter("patron_behalf_of");
+	    	//String patronBehalfOf = request.getParameter("patron_behalf_of");
 	    	String patronLocation = request.getParameter("patron_location");
 	    	String researchType = request.getParameter("research_type");
 	    	String sponsorshipProof = request.getParameter("sponsor_proof");
@@ -110,12 +110,12 @@ public class MinesHandlerServlet extends HttpServlet {
 		    		strBuffer.append(" , \"" + patronStatus + "\"");    		
 		    	}
 		    	
-		    	if(patronBehalfOf != null && patronBehalfOf.length() > 0) {
+		    	/*if(patronBehalfOf != null && patronBehalfOf.length() > 0) {
 		    		cookie = new Cookie("patron_behalf_of", patronBehalfOf);
 		    		cookie.setMaxAge(timeoutOtherParam);  
 		    		response.addCookie(cookie);
 		    		strBuffer.append(" , \"" + patronBehalfOf + "\"");		    		
-		    	}
+		    	}*/
 
 		    	if(researchType != null && researchType.length() > 0) {
 		    		cookie = new Cookie("research_type", researchType);
@@ -182,7 +182,7 @@ public class MinesHandlerServlet extends HttpServlet {
 	     * is found, inserts source_ip and timestamp into database.  Also check to see
 	     * if the cookie value is the same as the request destination url. If they are 
 	     * not equal, writes the values of other cookies such as patron_status, 
-	     * patron_behalf_of, patron_location, research_type and sponsorship to a file.
+	     * patron_location, research_type and sponsorship to a file.
 	     * User will be redirected to request destination URL. 
 	     * 
 	     * @param request servlet request

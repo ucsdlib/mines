@@ -20,19 +20,19 @@
 	
 	<div id="section">
 	
-		<h1>To proceed, complete this short survey regarding the resource you just requested</h1>
-		<p>This survey is being conducted for two hours today by the University of California, San Diego to assess the usage of selected online resources and library services. After completing this survey you will be connected to the resource you originally requested. <strong>Your responses are important and will be kept confidential.</strong></p>
-		<p>Thank you for your help.</p>
+		<h1>Complete this survey to proceed to your requested resource.</h1>
+		<p>UC San Diego is conducting an anonymous, 2-hour cost analysis of library use which may benefit the library's budget.  Thanks for your help.</p>
 	
-		<form name="mines_survey" id="mines_survey" method="post" action="MINES_survey">
+	<form name="mines_survey" id="mines_survey" method="post" action="MINES_survey">
 		    <input type="hidden" name="destination_url" id="destination_url" value="<%= request.getAttribute("requestURL")%>">
 		    <input type="hidden" name="new_destination_url" id="new_destination_url" value="<%= request.getAttribute("requestURL")%>">
 			<input type="hidden" name="patron_location" id="patron_location" value="<%= request.getAttribute("clientIp")%>">
-			<input type="hidden" name="client_ip_param" value="<%= request.getAttribute("clientIpParam")%>">		
+			<input type="hidden" name="client_ip_param" value="<%= request.getAttribute("clientIpParam")%>">	
+	
 			<fieldset id="set-a">
 				<legend>
-					What is your classification?
-					<div>Required &ndash; Select one</div>
+					What's your classification?
+					<div class="required">Required &ndash; Select one</div>
 				</legend>
 				<label for="a1">
 					<input id="a1" type="radio" name="patron_status" value="1">
@@ -41,58 +41,41 @@
 				<label for="a2">
 					<input id="a2" type="radio" name="patron_status" value="2">
 					UCSD Graduate Student
-					<div class="note">Medical, Pharmacy, and other Graduate/Professional schools</div>
+					<div class="note">Medical, Pharmacy, &amp; other Graduate/Professional Schools</div>
 				</label>
 				<label for="a3">
 					<input id="a3" type="radio" name="patron_status" value="3">
 					UCSD Personnel
-					<div class="note">Faculty, Staff, Fellows, Residents, Post-Docs, and Clinical Faculty</div>
+					<div class="note">Faculty, Staff, Fellow, Resident, Post-Doc, &amp; Clinical Faculty</div>
 				</label>
 				<label for="a4">
 					<input id="a4" type="radio" name="patron_status" value="4">
 					Non-UCSD
 				</label>
 			</fieldset>
-	
-			<fieldset id="set-b">
-				<legend>
-					Are you using the requested resource or library service for yourself or on behalf of a UCSD faculty/&#8203;staff member?
-					<div>Required &ndash; Select one</div>
-				</legend>
-				<label for="b1">
-					<input id="b1" type="radio" name="patron_behalf_of" value="0">
-					For myself
-				</label>
-				<label for="b2">
-					<input id="b2" type="radio" name="patron_behalf_of" value="1">
-					On behalf of a UCSD faculty/staff member
-				</label>
-			</fieldset>
-	
+
 			<fieldset id="set-c">
 				<legend>
-					Why are you using the requested resource or library service?
-					<div>Required &ndash; Select one</div>
+					Why are you using the requested resource?
+					<div class="required">Required &ndash; Select one</div>
 				</legend>
 				<label for="c1">
 					<input id="c1" type="radio" name="research_type" value="0">
 					Sponsored (Funded) Research
 					<div class="note">
-						<p><strong>This includes:</strong></p>
 						<ul>
 							<li>Research funded by grants or contracts from federal, state, or local governments</li>
 							<li>Research funded for grants or contracts from a foundation or other outside party</li>
-							<li>Separate budgeted research projects funded by University money</li>
+							<li>Separately budgeted research projects funded by University money</li>
 							<li>Research training</li>
 						</ul>
-						<p><em>Note: This category includes only specially funded research projects, which are separately budgeted and accounted for as organized research projects by the institution.</em></p>
+						<p><em>Category includes only specially funded research projects, which are separately budgeted and accounted for as organized research projects by the institution.</em></p>
 					</div>
 				</label>
 				<label for="c2">
 					<input id="c2" type="radio" name="research_type" value="1">
 					Instruction/&#8203;Education/&#8203;Departmental (Non-Funded) Research
 					<div class="note">
-						<p><strong>This includes:</strong></p>
 						<ul>
 							<li>All teaching and training activities</li>
 							<li>All student coursework, including term papers</li>
@@ -108,10 +91,8 @@
 					<input id="c3" type="radio" name="research_type" value="2">
 					Patient Care
 					<div class="note">
-						<p><strong>This includes:</strong></p>
 						<ul>
-							<li>Activities related to treating patients</li>
-							<li>Activities related to hospital duties</li>
+							<li>Activities related to treating patients & hospital duties</li>
 						</ul>
 					</div>
 				</label>
@@ -119,7 +100,6 @@
 					<input id="c4" type="radio" name="research_type" value="3">
 					Other Sponsored Activities (Public Service)
 					<div class="note">
-						<p><strong>This includes:</strong></p>
 						<ul>
 							<li>Community action and service programs</li>
 							<li>Sponsored public service projects</li>
@@ -130,7 +110,6 @@
 					<input id="c5" type="radio" name="research_type" value="4">
 					Other Institutional Activities
 					<div class="note">
-						<p><strong>This includes:</strong></p>
 						<ul>
 							<li>Recreational usages (not for class)</li>
 							<li>Administrative work, including grant preparation</li>
@@ -145,29 +124,28 @@
 				<fieldset>
 					<legend>
 						Which department, division, or school do you belong to?
-						<div>Required &ndash; Enter text</div>
+						<div class="optional">Optional &ndash; Enter text</div>
 					</legend>
 					<div class="text-control"><input type="text" name="academic_department" id="academic_department"></div>
 				</fieldset>
 				
 				<fieldset class="detail-list">
 					<legend>
-						What is the name of your sponsor or fund source?
-						<div>Required &ndash; Enter text</div>
+						What's the name of your sponsor or fund source?
+						<div class="optional">Optional &ndash; Enter text</div>
 					</legend>
-					<p><strong>Enter at least one of the following:</strong></p>
+					<div class="text-control"><input type="text"  name="sponsor_proof" id="sponsor_proof"></div>
+					<p><em>Choose one of the following options:</em></p>
 					<ul>
 						<li>Name of Sponsor or Fund Source<br/>
 							<span>E.g., NIH, NSF, DOE, DOD, State of California, American Cancer Society, Genentech, Mellon Foundation, NEH, etc.</span>
 						<li>Name of Principal Investigator/Researcher</li>
 						<li>Name of Grant or Fund Number</li>
 					</ul>
-					<div class="text-control"><input type="text"  name="sponsor_proof" id="sponsor_proof"></div>
 				</fieldset>
 			</div>
 			
 			<fieldset id="ye-olde-submit-button">
-				<legend>Incomplete :(</legend>
 				<input type="submit" name="submit" id="submit" value="Submit Survey">
 			</fieldset>
 	
@@ -177,7 +155,6 @@
 	
 	<div id="footer">
 		<p>Questions about this survey? <a href="mailto:librarysurvey@ucsd.edu">Let us know</a>!</p>
-		<p>Tip: Enable cookies to avoid seeing this survey more than once every twenty minutes.</p>
 	</div>
 
 </body>

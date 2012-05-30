@@ -5,6 +5,7 @@ $(document).ready(function() {
 	//---
 	document.mines_survey.reset();
 	$("#submit").attr("disabled","disabled");
+	$("input[type=submit]").attr("value","Incomplete");
 	
 	//---
 	// iDevice clickable label fix
@@ -73,42 +74,18 @@ $(document).ready(function() {
 function activeVerify(){
 	
 	$("#submit").attr("disabled","disabled");
-
+	
 	var
 		in1 = $("input[name=patron_status]:checked").length, 
-		in2 = $("input[name=patron_behalf_of]:checked").length, 
-		in3 = $("input[name=research_type]:checked").length,
-		in4 = ($("input[name=academic_department]").val() !== "")?1:0,
-		in5 = ($("input[name=sponsor_proof]").val() !== "")?1:0,
-		research_type = $("input[name=research_type]:checked").val();
-
-	if(research_type === "0")
-	{
-		switch(in1+in2+in3+in4+in5)
+		in3 = $("input[name=research_type]:checked").length;
+		switch(in1+in3)
 		{
-			case 1:	$("#ye-olde-submit-button legend").html("One down...");break;
-			case 2:	$("#ye-olde-submit-button legend").html("Almost there...");break;
-			case 3:	$("#ye-olde-submit-button legend").html("Couple more...");break;
-			case 4:	$("#ye-olde-submit-button legend").html("One left...");break;
-			case 5:	$("#ye-olde-submit-button legend").html("Done! :)");break;
+			case 1:	$("input[type=submit]").attr("value","Almost done...");break;
+			case 2:	$("input[type=submit]").attr("value","Submit Survey");break;
 		}
 
-		if(in1+in2+in3+in4+in5 === 5){
+		if(in1+in3 === 2){
 			$("#submit").removeAttr("disabled");
 		}
-	}
-	else
-	{
-		switch(in1+in2+in3)
-		{
-			case 1:	$("#ye-olde-submit-button legend").html("One down...");break;
-			case 2:	$("#ye-olde-submit-button legend").html("Almost there...");break;
-			case 3:	$("#ye-olde-submit-button legend").html("Done! :)");break;
-		}
-
-		if(in1+in2+in3 === 3){
-			$("#submit").removeAttr("disabled");
-		}
-	}	
 
 }

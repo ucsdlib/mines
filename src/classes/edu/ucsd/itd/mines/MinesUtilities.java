@@ -61,8 +61,7 @@ public class MinesUtilities {
 		if(cookies != null) {
     		patronStatus = MinesUtilities.getCookieValue(cookies, 
 			"patron_status");
-    		patronBehalfOf = MinesUtilities.getCookieValue(cookies, 
-			"patron_behalf_of");
+    		//patronBehalfOf = MinesUtilities.getCookieValue(cookies, "patron_behalf_of");
     		patronLocation = MinesUtilities.getCookieValue(cookies, 
 			"patron_location");    		
     		researchType = MinesUtilities.getCookieValue(cookies, 
@@ -90,8 +89,8 @@ public class MinesUtilities {
     		if(patronStatus != null && patronStatus.length() > 0)
     			strBuffer.append(" , \"" + patronStatus + "\"");
     		
-    		if(patronBehalfOf != null && patronBehalfOf.length() > 0)
-    			strBuffer.append(" , \"" + patronBehalfOf + "\"");
+    		/*if(patronBehalfOf != null && patronBehalfOf.length() > 0)
+    			strBuffer.append(" , \"" + patronBehalfOf + "\"");*/
     		
     		if(researchType != null && researchType.length() > 0)
     			strBuffer.append(" , \"" + researchType + "\"");

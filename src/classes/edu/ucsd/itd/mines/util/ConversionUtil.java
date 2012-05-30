@@ -24,7 +24,7 @@ public class ConversionUtil {
         MinesSurvey minesSurvey = new MinesSurvey();
         minesSurvey.setAcademicDepartment(map.get(SurveyField.ACADEMIC_DEPARTMENT));
         minesSurvey.setDestinationUrl(map.get(SurveyField.DESTINATION_URL));
-        minesSurvey.setPatronBehalfOf(map.get(SurveyField.PATRON_BEHALF_OF));
+        //minesSurvey.setPatronBehalfOf(map.get(SurveyField.PATRON_BEHALF_OF));
         minesSurvey.setPatronLocation(map.get(SurveyField.PATRON_LOCATION));
         minesSurvey.setPatronStatus(map.get(SurveyField.PATRON_STATUS));
         minesSurvey.setResearchType(map.get(SurveyField.RESEARCH_TYPE));
