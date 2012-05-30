@@ -31,12 +31,12 @@
   
   <context-param>
     <param-name>timeoutDestinationURL</param-name>
-    <param-value>1200</param-value>
+    <param-value>86400</param-value>
   </context-param>  
   
   <context-param>
     <param-name>timeoutOtherParam</param-name>
-    <param-value>10800</param-value>
+    <param-value>86400</param-value>
   </context-param>  
    
 	<context-param>
