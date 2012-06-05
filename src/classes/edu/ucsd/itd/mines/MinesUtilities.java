@@ -54,7 +54,7 @@ public class MinesUtilities {
     	String patronStatus = null, patronBehalfOf = null;
     	String researchType = null, sponsorshipProof = null;		
     	String patronLocation = null, academicDepartment = null;
-    	String clientIpParam = null, newDestinationURL = null;
+    	String clientIpParam = null, newDestinationURL = null, clientDevice = null;
     	StringBuffer strBuffer = new StringBuffer();
     	Timestamp ts = new Timestamp(System.currentTimeMillis());
     	
@@ -76,7 +76,8 @@ public class MinesUtilities {
 			"client_ip_param");
     		newDestinationURL = MinesUtilities.getCookieValue(cookies, 
 			"new_destination_url");
-    		
+    		clientDevice = MinesUtilities.getCookieValue(cookies, 
+			"client_device");
     		if(ts != null) {
 	    		strBuffer.append("\"" + ts + "\"");
 	    	} 
@@ -110,6 +111,11 @@ public class MinesUtilities {
     		
     		if(clientIpParam != null && clientIpParam.length() > 0)
     			strBuffer.append(" , \"" + clientIpParam + "\"");
+    		
+    		if(clientDevice != null && clientDevice.length() > 0)
+    			strBuffer.append(" , \"" + clientDevice + "\"");
+    		else
+	    		strBuffer.append(" , \"N/A\"");
     		
     		strBuffer.append("\n");
     		writeToFile(fileName, strBuffer);

@@ -69,6 +69,7 @@ public class MinesHandlerServlet extends HttpServlet {
 	    	String sponsorshipProof = request.getParameter("sponsor_proof");
 	    	String academicDepartment = request.getParameter("academic_department");
 	    	String clientIpParam = request.getParameter("client_ip_param");
+	    	String clientDevice = request.getParameter("client_device");
 	    	
 	    	String redirectURL = destinationURL != null ? destinationURL : "http://ucsd.edu";
 	    	Timestamp ts = new Timestamp(System.currentTimeMillis());
@@ -159,6 +160,14 @@ public class MinesHandlerServlet extends HttpServlet {
 		    		response.addCookie(cookie);  
 		    		strBuffer.append(" , \"" + clientIpParam + "\"");		    			    	
 		    	}
+		    	
+		    	if(clientDevice != null && clientDevice.length() > 0) {
+		    		cookie = new Cookie("client_device", clientDevice);
+		    		cookie.setMaxAge(timeoutOtherParam);  
+		    		response.addCookie(cookie);
+		    		strBuffer.append(" , \"" + clientDevice+ "\"");
+		    	} else
+		    		strBuffer.append(" , \"N/A\"");
 		    	
 		    	strBuffer.append("\n");
 
