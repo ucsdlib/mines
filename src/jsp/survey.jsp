@@ -12,16 +12,6 @@
 	<!--[if lt IE 9]>
 	<link rel="stylesheet" href="http://libraries.ucsd.edu/assets/mines/mines-ie.css">
 	<![endif]-->
-	<script type="text/javascript">
-		function initForm()
-		{
-			if(DetectIphoneOrIpod() || DetectS60OssBrowser() || DetectAndroid() || DetectAndroidWebKit() || DetectWindowsMobile() || DetectBlackBerry() || DetectPalmOS()) {    
-			     document.getElementById('mines_survey').elements["client_device"].value = 'Mobile';
-			} else {
-				document.getElementById('mines_survey').elements["client_device"].value = 'Desktop';
-			}
-		}
-	</script>
 </head>
 <body onload="initForm();">
 	

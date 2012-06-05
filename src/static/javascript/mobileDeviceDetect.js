@@ -10,7 +10,14 @@ var devicePalm = "palm";
 
 //Initialize our user agent string to lower case.
 var uagent = navigator.userAgent.toLowerCase();
-
+function initForm()
+{
+	if(DetectIphoneOrIpod() || DetectS60OssBrowser() || DetectAndroid() || DetectAndroidWebKit() || DetectWindowsMobile() || DetectBlackBerry() || DetectPalmOS()) {    
+	     document.getElementById('mines_survey').elements["client_device"].value = 'Mobile';
+	} else {
+		document.getElementById('mines_survey').elements["client_device"].value = 'Desktop';
+	}
+}
 //**************************
 // Detects if the current device is an iPhone.
 function DetectIphone()
