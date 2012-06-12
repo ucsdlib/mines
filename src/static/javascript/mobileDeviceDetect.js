@@ -1,5 +1,6 @@
 var deviceIphone = "iphone";
 var deviceIpod = "ipod";
+var deviceIpad = "ipad";
 var deviceS60 = "series60";
 var deviceSymbian = "symbian";
 var engineWebKit = "webkit";
@@ -12,12 +13,22 @@ var devicePalm = "palm";
 var uagent = navigator.userAgent.toLowerCase();
 function initForm()
 {
-	if(DetectIphoneOrIpod() || DetectS60OssBrowser() || DetectAndroid() || DetectAndroidWebKit() || DetectWindowsMobile() || DetectBlackBerry() || DetectPalmOS()) {    
+	if(DetectIphoneOrIpodOrIpad() || DetectS60OssBrowser() || DetectAndroid() || DetectAndroidWebKit() || DetectWindowsMobile() || DetectBlackBerry() || DetectPalmOS()) {    
 	     document.getElementById('mines_survey').elements["client_device"].value = 'Mobile';
 	} else {
 		document.getElementById('mines_survey').elements["client_device"].value = 'Desktop';
 	}
 }
+//**************************
+// Detects if the current device is an iPad.
+function DetectIpad()
+{
+   if (uagent.search(deviceIpad) > -1)
+      return true;
+   else
+      return false;
+}
+
 //**************************
 // Detects if the current device is an iPhone.
 function DetectIphone()
@@ -40,12 +51,14 @@ function DetectIpod()
 
 //**************************
 // Detects if the current device is an iPhone or iPod Touch.
-function DetectIphoneOrIpod()
+function DetectIphoneOrIpodOrIpad()
 {
     if (DetectIphone())
        return true;
     else if (DetectIpod())
        return true;
+	else if (DetectIpad())
+       return true;       
     else
        return false;
 }
