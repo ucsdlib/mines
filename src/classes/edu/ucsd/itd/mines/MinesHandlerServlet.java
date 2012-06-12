@@ -162,7 +162,7 @@ public class MinesHandlerServlet extends HttpServlet {
 		    	}
 		    	
 		    	if(clientDevice != null && clientDevice.length() > 0) {
-		    		cookie = new Cookie("client_device", clientDevice);
+		    		cookie = new Cookie("client_device", URLEncoder.encode(clientDevice,"UTF-8"));
 		    		cookie.setMaxAge(timeoutOtherParam);  
 		    		response.addCookie(cookie);
 		    		strBuffer.append(" , \"" + clientDevice+ "\"");

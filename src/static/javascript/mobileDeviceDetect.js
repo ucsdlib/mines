@@ -13,11 +13,13 @@ var devicePalm = "palm";
 var uagent = navigator.userAgent.toLowerCase();
 function initForm()
 {
-	if(DetectIphoneOrIpodOrIpad() || DetectS60OssBrowser() || DetectAndroid() || DetectAndroidWebKit() || DetectWindowsMobile() || DetectBlackBerry() || DetectPalmOS()) {    
+	/*if(DetectIphoneOrIpodOrIpad() || DetectS60OssBrowser() || DetectAndroid() || DetectAndroidWebKit() || DetectWindowsMobile() || DetectBlackBerry() || DetectPalmOS()) {    
 	     document.getElementById('mines_survey').elements["client_device"].value = 'Mobile';
 	} else {
 		document.getElementById('mines_survey').elements["client_device"].value = 'Desktop';
-	}
+	}*/
+
+	document.getElementById('mines_survey').elements["client_device"].value = uagent;
 }
 //**************************
 // Detects if the current device is an iPad.

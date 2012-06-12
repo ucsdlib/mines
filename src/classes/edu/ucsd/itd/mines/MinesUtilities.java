@@ -113,7 +113,7 @@ public class MinesUtilities {
     			strBuffer.append(" , \"" + clientIpParam + "\"");
     		
     		if(clientDevice != null && clientDevice.length() > 0)
-    			strBuffer.append(" , \"" + clientDevice + "\"");
+    			strBuffer.append(" , \"" + URLDecoder.decode(clientDevice,"UTF-8") + "\"");
     		else
 	    		strBuffer.append(" , \"N/A\"");
     		
