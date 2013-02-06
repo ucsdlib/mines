@@ -66,7 +66,7 @@ $(document).ready(function() {
 	//---
 	// Activate submit button on form completion
 	//---
-	$("input").live("change", function(){activeVerify();});
+	$("input").on("change", function(){activeVerify();});
 	$("input[type=text]").keyup(function(event){activeVerify();});
 
 });
