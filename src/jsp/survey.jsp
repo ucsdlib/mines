@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>Online Resource Usage Survey &ndash; UC San Diego Libraries</title>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="javascript/mines.js"></script>
 	<script src="javascript/mobileDeviceDetect.js"></script>
 	<link rel="stylesheet" href="css/mines.css">
