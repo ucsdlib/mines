@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<title>Online Resource Usage Survey &ndash; UC San Diego Libraries</title>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	<script src="javascript/mines.js"></script>
 	<script src="javascript/mobileDeviceDetect.js"></script>
 	<link rel="stylesheet" href="css/mines.css">
@@ -75,7 +75,7 @@
 							<li>Independent faculty research (departmental research), writing, and other scholarly activities</li>
 						</ul>
 					</div>
-				</label>				
+				</label>					
 				<label for="c1">
 					<input id="c1" type="radio" name="research_type" value="0">
 					Sponsored (Funded) Research
@@ -88,7 +88,7 @@
 						</ul>
 						<p><em>Category includes only specially funded research projects, which are separately budgeted and accounted for as organized research projects by the institution.</em></p>
 					</div>
-				</label>
+				</label>							
 				<label for="c3">
 					<input id="c3" type="radio" name="research_type" value="2">
 					Patient Care
