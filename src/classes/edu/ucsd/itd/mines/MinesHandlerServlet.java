@@ -94,10 +94,12 @@ public class MinesHandlerServlet extends HttpServlet {
 	    		
 	    		if(destinationURL != null && destinationURL.length() > 0) {
 		    		cookie = new Cookie("destination_url", URLEncoder.encode(destinationURL,"UTF-8"));
+		    		cookie.setPath("/");
 		    		cookie.setMaxAge(timeoutDestUrl);  
 		    		response.addCookie(cookie);	 
 		    		
 		    		cookie = new Cookie("new_destination_url", URLEncoder.encode(destinationURL,"UTF-8"));
+		    		cookie.setPath("/");
 		    		cookie.setMaxAge(timeoutDestUrl);  
 		    		response.addCookie(cookie);	
 		    		
@@ -106,6 +108,7 @@ public class MinesHandlerServlet extends HttpServlet {
 	    		
 		    	if(patronStatus != null && patronStatus.length() > 0) {
 		    		cookie = new Cookie("patron_status", patronStatus);
+		    		cookie.setPath("/");
 		    		cookie.setMaxAge(timeoutOtherParam);  
 		    		response.addCookie(cookie);
 		    		strBuffer.append(" , \"" + patronStatus + "\"");    		
@@ -120,6 +123,7 @@ public class MinesHandlerServlet extends HttpServlet {
 
 		    	if(researchType != null && researchType.length() > 0) {
 		    		cookie = new Cookie("research_type", researchType);
+		    		cookie.setPath("/");
 		    		cookie.setMaxAge(timeoutOtherParam);  
 		    		response.addCookie(cookie);
 		    		strBuffer.append(" , \"" + researchType+ "\"");		    		
@@ -127,6 +131,7 @@ public class MinesHandlerServlet extends HttpServlet {
 			    	
 		    	if(sponsorshipProof != null && sponsorshipProof.length() > 0) {
 		    		cookie = new Cookie("sponsor_proof", sponsorshipProof);
+		    		cookie.setPath("/");
 		    		cookie.setMaxAge(timeoutOtherParam);
 		    		response.addCookie(cookie);
 		    		strBuffer.append(" , \"" + sponsorshipProof+ "\"");
@@ -135,6 +140,7 @@ public class MinesHandlerServlet extends HttpServlet {
 		    	
 		    	if(academicDepartment != null && academicDepartment.length() > 0) {
 		    		cookie = new Cookie("academic_department", academicDepartment);
+		    		cookie.setPath("/");
 		    		cookie.setMaxAge(timeoutOtherParam);  
 		    		response.addCookie(cookie);
 		    		strBuffer.append(" , \"" + academicDepartment+ "\"");
@@ -143,6 +149,7 @@ public class MinesHandlerServlet extends HttpServlet {
 		    	
 		    	if(patronLocation != null && patronLocation.length() > 0) {   		    				    		
 		    		cookie = new Cookie("patron_location", patronLocation);
+		    		cookie.setPath("/");
 		    		cookie.setMaxAge(timeoutOtherParam);
 		    		response.addCookie(cookie);  
 		    		
@@ -156,6 +163,7 @@ public class MinesHandlerServlet extends HttpServlet {
 	
 		    	if(clientIpParam != null && clientIpParam.length() > 0) {   		    				    		
 		    		cookie = new Cookie("client_ip_param", clientIpParam);
+		    		cookie.setPath("/");
 		    		cookie.setMaxAge(timeoutOtherParam);
 		    		response.addCookie(cookie);  
 		    		strBuffer.append(" , \"" + clientIpParam + "\"");		    			    	
@@ -163,6 +171,7 @@ public class MinesHandlerServlet extends HttpServlet {
 		    	
 		    	if(clientDevice != null && clientDevice.length() > 0) {
 		    		cookie = new Cookie("client_device", URLEncoder.encode(clientDevice,"UTF-8"));
+		    		cookie.setPath("/");
 		    		cookie.setMaxAge(timeoutOtherParam);  
 		    		response.addCookie(cookie);
 		    		strBuffer.append(" , \"" + clientDevice+ "\"");
