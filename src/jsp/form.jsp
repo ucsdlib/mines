@@ -76,6 +76,19 @@
 					Why are you using the requested resource or library service?
 					<div>Required &ndash; Select one</div>
 				</legend>
+				<label for="c1">
+					<input id="c1" type="radio" name="research_type" value="0">
+					Sponsored (Funded) Research
+					<div class="note">
+						<ul>
+							<li>Research funded by grants or contracts from federal, state, or local governments</li>
+							<li>Research funded for grants or contracts from a foundation or other outside party</li>
+							<li>Separately budgeted research projects funded by University money</li>
+							<li>Research training</li>
+						</ul>
+						<p><em>Category includes only specially funded research projects, which are separately budgeted and accounted for as organized research projects by the institution.</em></p>
+					</div>
+				</label>				
 				<label for="c2">
 					<input id="c2" type="radio" name="research_type" value="1">
 					Instruction/&#8203;Education/&#8203;Departmental (Non-Funded) Research
@@ -89,19 +102,6 @@
 							<li>Sponsored training</li>
 							<li>Independent faculty research (departmental research), writing, and other scholarly activities</li>
 						</ul>
-					</div>
-				</label>
-				<label for="c1">
-					<input id="c1" type="radio" name="research_type" value="0">
-					Sponsored (Funded) Research
-					<div class="note">
-						<ul>
-							<li>Research funded by grants or contracts from federal, state, or local governments</li>
-							<li>Research funded for grants or contracts from a foundation or other outside party</li>
-							<li>Separately budgeted research projects funded by University money</li>
-							<li>Research training</li>
-						</ul>
-						<p><em>Category includes only specially funded research projects, which are separately budgeted and accounted for as organized research projects by the institution.</em></p>
 					</div>
 				</label>				
 				<label for="c3">
